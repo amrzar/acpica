@@ -360,6 +360,10 @@
 
 #elif defined(__ZEPHYR__)
 #include "aczephyr.h"
+
+#elif defined(__CYANEA__)
+#include "accyanea.h"
+
 #else
 
 /* Unknown environment */
