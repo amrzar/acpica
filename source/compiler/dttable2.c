@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2023, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2024, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -550,7 +550,7 @@ DtCompileMpam (
         RisLength = 0;
 
         /* Iterate over RIS subtables per MSC node */
-        for (UINT32 ris = 0; ris < MpamMscNode->NumResouceNodes; ris++)
+        for (UINT32 ris = 0; ris < MpamMscNode->NumResourceNodes; ris++)
         {
             /* Compile RIS subtable */
             Status = DtCompileTable (PFieldList, AcpiDmTableInfoMpam1,
@@ -2610,6 +2610,11 @@ DtCompileSrat (
         case ACPI_SRAT_TYPE_GENERIC_PORT_AFFINITY:
 
             InfoTable = AcpiDmTableInfoSrat6;
+            break;
+
+        case ACPI_SRAT_TYPE_RINTC_AFFINITY:
+
+            InfoTable = AcpiDmTableInfoSrat7;
             break;
 
         default:
